@@ -25,7 +25,7 @@ module.exports = {
   resolve: { extensions: [ '', '.js' ] },
 
   plugins: [
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
     }),
@@ -33,8 +33,8 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!postcss') },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style', loader: 'css!postcss' }) },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style', 'css!postcss!sass' }) },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

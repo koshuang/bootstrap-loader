@@ -11,7 +11,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
 3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
- 
+
 That being said, Bootstrap 4 probably works just fine!
 
 ## NEWS
@@ -278,7 +278,7 @@ Additionally, Bootstrap 4 requires Tether. You can add Tether per the examples i
 
 ```
   plugins: [
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
     }),
